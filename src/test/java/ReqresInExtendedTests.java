@@ -36,7 +36,7 @@ public class ReqresInExtendedTests {
     }
 
     @Test
-    @DisplayName("2.LOGIN - UNSUCCESSFUL - ВОЙТИ - НЕУДАЧНО")
+    @DisplayName("2.LOGIN - UNSUCCESSFUL - ВОЙТИ НЕУДАЧНО")
     void LoginWithBadPracticeTest2() {
         String data = "{ \"email\": \"sydney@fife\"}";
 
