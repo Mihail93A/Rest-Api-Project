@@ -18,7 +18,6 @@
 
 * <a href="#allure-testops">Интеграция с Allure TestOps</a>
 
-* <a href="#jira">Интеграция с Jira</a>
 
 
 <a id="tools"></a>
