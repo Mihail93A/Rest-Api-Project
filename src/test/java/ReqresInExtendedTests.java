@@ -17,8 +17,8 @@ public class ReqresInExtendedTests {
 
 
     @Test
-    @DisplayName("1. LOGIN SUCCESSFUL -  АВТОРИЗАЦИЯ УСПЕШНА")
-    void LoginWithCustomSpecsTest() {
+    @DisplayName("Авторизация прошла успешна")
+    void LoginSuccessful () {
         LoginBodyLombokModel data = new LoginBodyLombokModel();
         data.setEmail("eve.holt@reqres.in");
         data.setPassword("cityslicka");
@@ -36,8 +36,8 @@ public class ReqresInExtendedTests {
     }
 
     @Test
-    @DisplayName("2.LOGIN - UNSUCCESSFUL - ВОЙТИ НЕУДАЧНО")
-    void LoginWithBadPracticeTest2() {
+    @DisplayName("Войти не удалось")
+    void LoginUnsuccessful() {
         String data = "{ \"email\": \"sydney@fife\"}";
 
         given()
@@ -53,8 +53,8 @@ public class ReqresInExtendedTests {
                 .body("error", is("Missing password"));
     }
     @Test
-    @DisplayName("3. REGISTER UNSUCCESSFUL - РЕГИСТРАЦИЯ НЕУСПЕШНО")
-    void LoginWithBadPracticeTest3() {
+    @DisplayName("Регистрация неуспешна")
+    void RegisterUnsuccessful() {
         String data = "{ \"email\": \"sydney@fife\"}";
 
         given()
@@ -70,8 +70,8 @@ public class ReqresInExtendedTests {
                 .body("error", is("Missing password"));
     }
     @Test
-    @DisplayName("4. SINGLE USER NOT FOUND - ОДИН ПОЛЬЗОВАТЕЛЬ НЕ НАЙДЕН")
-    void LoginWithBadPracticeTest4() {
+    @DisplayName("Пользователь не найден")
+    void SingleUserNotFound() {
 
 
         given()
@@ -84,8 +84,8 @@ public class ReqresInExtendedTests {
                 .statusCode(200);
     }
     @Test
-    @DisplayName ("5. LIST USERS - получение списка пользователей")
-    void LoginWithBadPracticeTest5() {
+    @DisplayName ("Получение списка пользователей")
+    void ListUsers() {
 
         given()
                 .log().uri()
