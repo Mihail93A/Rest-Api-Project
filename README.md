@@ -1,89 +1,107 @@
-# Дипломный проект по тестированию API для [reqres.in](https://reqres.in/)
+<h1 >Демопроект автоматизации тестирования API на <a href="https://reqres.in/">reqres.in</a></h1>
 
-## :open_book: Содержание
+![WB_logo.jpg](media/logo/reqres_logo.png)
 
-- [Технологии и инструменты](#gear-технологии-и-инструменты)
-- [Реализованныe проверки](#heavy_check_mark-тест-кейсы)
-- [Запуск тестов из терминала](#computer-запуск-тестов-из-терминала)
-- [Запуск тестов в Jenkins](#-запуск-тестов-в-jenkins)
-- [Отчет о результатах тестирования в Allure Report](#-отчет-о-результатах-тестирования-в-Allure-report)
-- [Интеграция с Allure TestOps](#-интеграция-с-allure-testops)
-- [Уведомления в Telegram](#-уведомления-в-telegram)
+## :page_with_curl: Содержание 
 
-## :gear: Технологии и инструменты
+* <a href="#tools">Технологии и инструменты</a>
 
-<p align="left">
-<a href="https://www.jetbrains.com/idea/"><img src="media/logo/Intelij_IDEA.svg" width="50" height="50"  alt="IDEA" title="IntelliJ IDEA"/></a>
-<a href="https://www.java.com/"><img src="media/logo/Java.svg" width="50" height="50" alt="Java" title="Java"/></a>
-<a href="https://github.com/"><img src="media/logo/GitHub.svg" width="50" height="50" alt="Github" title="GitHub"/></a>
-<a href="https://junit.org/junit5/"><img src="media/logo/JUnit5.svg" width="50" height="50" alt="JUnit 5" title="JUnit 5"/></a>
-<a href="https://gradle.org/"><img src="media/logo/Gradle.svg" width="50" height="50" alt="Gradle" title="Gradle"/></a>
-<a href="https://github.com/allure-framework/allure2"><img src="media/logo/Allure_Report.svg" width="50" height="50" alt="Allure" title="Allure"/></a>
-<a href="https://www.jenkins.io/"><img src="media/logo/Jenkins.svg" width="50" height="50" alt="Jenkins" title="Jenkins"/></a>
-<a href="https://web.telegram.org/"><img src="media\logo\Telegram.svg" width="50" height="50" alt="Telegram" title="Telegram"></a>
-<a href="https://qameta.io/"><img src="media\logo\Allure_TO.svg" width="50" height="50" alt="Allure_TO" title="Allure_TO"></a>
-</p>
+* <a href="#cases">Реализованные проверки</a>
 
-## :heavy_check_mark: Тест кейсы
+* <a href="#console">Запуск тестов из терминала</a>
 
-- Получение списка пользователей
-- Проверка наличия пользователя в базе
-- Создание нового пользователя
-- Обновление данных пользователя
-- Успешная регистрация
-- Проверка id, email пользователя
-- Проверка email пользователя при помощи Groovy
+* <a href="#jenkins">Запуск тестов в Jenkins</a>
 
-## :computer: Запуск тестов из терминала
+* <a href="#telegram">Уведомления в Telegram</a>
 
+* <a href="#allure">Allure Report отчеты</a>
+
+* <a href="#allure-testops">Интеграция с Allure TestOps</a>
+
+* <a href="#jira">Интеграция с Jira</a>
+
+
+<a id="tools"></a>
+## Технологии и инструменты
+
+| Java                                                                                                    | IntelliJ Idea                                                                                                                | Allure                                                                                                                    | Allure TestOps                                                                                                      | GitHub                                                                                                    | JUnit 5                                                                                                           | Gradle                                                                                                   | REST Assured                                                                                                   |  Jenkins                                                                                                           | Jira                                                                                                                         |
+|:--------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------:|------------------------------------------------------------------------------------------------------------------------------|
+| <a href="https://www.java.com/"><img src="media/logo/Java.svg" width="50" height="50"  alt="Java"/></a> | <a id ="tech" href="https://www.jetbrains.com/idea/"><img src="media/logo/Idea.svg" width="50" height="50"  alt="IDEA"/></a> | <a href="https://github.com/allure-framework"><img src="media/logo/Allure.svg" width="50" height="50"  alt="Allure"/></a> | <a href="https://qameta.io/"><img src="media/logo/Allure_TO.svg" width="50" height="50"  alt="Allure TestOps"/></a> | <a href="https://github.com/"><img src="media/logo/GitHub.svg" width="50" height="50"  alt="Github"/></a> | <a href="https://junit.org/junit5/"><img src="media/logo/Junit5.svg" width="50" height="50"  alt="JUnit 5"/></a> | <a href="https://gradle.org/"><img src="media/logo/Gradle.svg" width="50" height="50"  alt="Gradle"/></a> | <a href="https://rest-assured.io/"><img src="media/logo/RestAssured.svg" width="50" height="50"  alt="RestAssured"/></a>  |   <a href="https://www.jenkins.io/"><img src="media/logo/Jenkins.svg" width="50" height="50"  alt="Jenkins"/></a> | <a href="https://www.atlassian.com/ru/software/jira"><img src="media/logo/Jira.svg" width="50" height="50"  alt="Jira"/></a> |
+
+
+<a id="cases"></a>
+## :heavy_check_mark: Реализованные проверки
+
+-  Успешная/неуспешная авторизация пользователя 
+-  Успешная/неуспешная регистрация пользователя
+-  Получение данных пользователя по id
+-  Удаление пользователя по id
+
+<a id="console"></a>
+##  Запуск тестов из терминала
 ### Локальный запуск тестов
 
-```bash
-gradle clean test
+```
+gradle clean test  
 ```
 
-## <img width="4%" title="Jenkins" src="media/logo/Jenkins.svg"> Запуск тестов из [Jenkins](https://jenkins.autotests.cloud/job/015_aziyatdinov_final_api/)
-Для запуска сборки необходимо перейти в раздел <code><strong>*Собрать с параметрами*</strong></code> и нажать кнопку <code><strong>*Собрать*</strong></code>.
+<a id="jenkins"></a>
+## <img src="media/logo/Jenkins.svg" width="25" height="25"/></a> Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/AD_demo_api_reqres/)
 
 <p align="center">
-  <img src="media/screen/start_jenkins.png" alt="Jenkins" width="800">
+
+> Для запуска необходимо нажать "Собрать сейчас".
+
+<a href="https://jenkins.autotests.cloud/job/AD_demo_api_reqres/"><img src="media/screenshots/JenkinsSborka.png" alt="Jenkins"/></a>
+
+> При клике на сборку после завершения можно увидеть артефакты запуска и полезные ссылки для более детального изучения прогона.
+
+<a href="https://jenkins.autotests.cloud/job/AD_demo_api_reqres/"><img src="media/screenshots/JenkinsIntegrations.png" alt="Jenkins"/></a>
 </p>
 
-После выполнения сборки, в блоке <code><strong>*История сборок*</strong></code> напротив номера сборки появится
-значок *Allure Report* и *Allure TestOps* кликнув по которому, откроется страница с сформированным html-отчетом и тестовой документацией.
+<a id="telegram"></a>
+## <img src="media/logo/Telegram.svg" width="25" height="25"/></a> Уведомления в Telegram
 
-## <img width="4%" title="Allure Report" src="media/logo/Allure_Report.svg"> Отчет о результатах тестирования в [Allure Report](https://jenkins.autotests.cloud/job/015_aziyatdinov_final_api/4/allure/)
+<p >
 
-<p align="center">
-  <img src="media/screen/jenkins_overview.png" alt="allure-report" width="900">
+> С помощью настроенного бота после завершения прогона в Jenkins поступают уведомления в Telegram.
+
+<img title="telegram bot" src="media/screenshots/TelegramBotAPI.png">
 </p>
 
+<a id="allure"></a>
+## <img src="media/logo/Allure.svg" width="25" height="25"/></a> [Allure Report](https://jenkins.autotests.cloud/job/AD_demo_api_reqres/5/allure/) отчеты
+
+### Основное окно
+
 <p align="center">
-  <img src="media/screen/jenkins_behaviors.png" alt="allure-report_1" width="900">
+<img title="Allure Dashboard" src="media/screenshots/AllureDashboard.png">
 </p>
 
-## <img width="4%" title="Allure TestOPS" src="media/logo/Allure_TO.svg"> Интеграция с [Allure TestOps](https://allure.autotests.cloud/launch/18313)
-
-### Основной дашборд
+### Отчеты по тестам
 
 <p align="center">
-  <img src="media/screen/dashboards.png" alt="dashboard" width="900">
+
+> В отчете по тестам присутствует развернутая информация по запросам и ответам.
+
+<img title="Allure Tests" src="media/screenshots/AllureWithInfo.png">
 </p>
 
-### Список тестов с результатами прогона
+<a id="allure-testops"></a>
+## <img src="media/logo/Allure_TO.svg" width="25" height="25"/></a> Интеграция с [Allure TestOps](https://allure.autotests.cloud/project/1933/dashboards)
+
+### Основное окно
 
 <p align="center">
-  <img src="media/screen/allure-testops-results.png" alt="dashboard" width="900">
+<img title="Allure TestOps" src="media/screenshots/Dashboard_TO.png">
 </p>
 
-### Тест-кейсы
+### Дерево тестов с разделением по фичам
 
 <p align="center">
-  <img src="media/screen/allure-testops-testcases.png" alt="testcase" width="900">
+<img title="Allure TestOps" src="media/screenshots/TreeByFeatures_TO.png">
 </p>
 
-## <img width="4%" title="Telegram" src="media/logo/Telegram.svg"> Уведомления в Telegram
-После завершения сборки специальный бот, созданный в <code>Telegram</code>, автоматически обрабатывает и отправляет сообщение с отчетом о прогоне тестов.
+<a id="jira"></a>
 
-<p align="center">
-<img title="Telegram Notifications" src="media/screen/notifications.png">
+
